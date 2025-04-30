@@ -203,17 +203,6 @@ abbr {
     margin-block-start: 0;
     gap: 1rem;
 }
-/* .footer {
-    & a {
-        color: var(--link-blue);
-        text-underline-offset: 0.5em;
-
-        &::after {
-            color: var(--link-blue);
-            content: " \27F6";
-        }
-    }
-} */
 
 .main {
     display: grid;
@@ -239,14 +228,7 @@ abbr {
     box-shadow: var(--shadow);
 
     & a {
-        /* color: var(--link-blue);
-        text-underline-offset: 0.5em; */
         margin-inline-start: auto;
-
-        /* &::after {
-            color: var(--link-blue);
-            content: " \27F6";
-        } */
     }
 }
 .eye-dropper {
@@ -284,6 +266,10 @@ abbr {
             position: relative;
             top: 0.1875rem;
             left: 0.0625rem;
+        }
+
+        &:hover {
+            opacity: 0.7;
         }
     }
 
