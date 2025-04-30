@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Demonstration of the Eye Dropper API, allowing users to select a colour from anywhere on the screen and view its hex value and visual swatch. Fully accessible and theme-aware.">
+
+    <title>Eye Dropper API</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
+    <link rel="manifest" href="./site.webmanifest">
+    <link rel="stylesheet" href="./style.css">
+    <script src="./index.js" type="module"></script>
+</head>
+
+<body>
+    <div id="loader" class="loader"><span class="visually-hidden">The page is loading...</span></div>
+    <span class="visually-hidden" aria-hidden="true" id="page-loaded"></span>
+    <a href="#main-content" class="element-invisible element-focusable skip-link">Skip to main content</a>
+
+    <div class="theme-toggler">
+        <p class="light">Light<span class="visually-hidden"> theme inactive</span></p><button type="button"
+            aria-pressed="true" aria-label="Toggle theme"><span></span></button>
+        <p class="dark">Dark<span class="visually-hidden"> theme active</span></p>
+    </div>
+
+    <header class="header">
+        <h1> <svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                aria-hidden="true">
+                <title>Colour picker</title>
+                <path
+                    d="M33.73,2.11a4.09,4.09,0,0,0-5.76.1L22.81,7.38a3.13,3.13,0,0,1-4.3.11L17.09,8.91,27,18.79l1.42-1.42A3.18,3.18,0,0,1,28.46,13l5.17-5.17A4.08,4.08,0,0,0,33.73,2.11Z">
+                </path>
+                </path>
+                <path
+                    d="M22.18,16.79,7.46,31.51a2,2,0,1,1-2.82-2.83L19.35,14l-1.41-1.41L3.22,27.27a4,4,0,0,0-.68,4.8L1.06,33.55a1,1,0,0,0,0,1.41,1,1,0,0,0,1.41,0l1.44-1.44a3.93,3.93,0,0,0,2.09.6,4.06,4.06,0,0,0,2.88-1.2L23.6,18.21Z">
+                </path>
+            </svg><span>Eye Dropper <abbr title="Application Programming Interface">API</abbr></span></h1>
+    </header>
+
+    <main class="main" id="main-content">
+
+        <div class="eye-dropper" id="eye-dropper">
+            <h2 class="visually-hidden">Eye Dropper</h2>
+            <p>Click the eye dropper button, then select a colour from anywhere on the screen.</p>
+
+            <button type="button" class="btn-eye-dropper" id="btn-eye-dropper" aria-describedby="colour-description">
+                <span class="visually-hidden">Colour picker</span>
+                <svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                    aria-hidden="true">
+                    <title>Colour picker</title>
+                    <path
+                        d="M33.73,2.11a4.09,4.09,0,0,0-5.76.1L22.81,7.38a3.13,3.13,0,0,1-4.3.11L17.09,8.91,27,18.79l1.42-1.42A3.18,3.18,0,0,1,28.46,13l5.17-5.17A4.08,4.08,0,0,0,33.73,2.11Z">
+                    </path>
+                    </path>
+                    <path
+                        d="M22.18,16.79,7.46,31.51a2,2,0,1,1-2.82-2.83L19.35,14l-1.41-1.41L3.22,27.27a4,4,0,0,0-.68,4.8L1.06,33.55a1,1,0,0,0,0,1.41,1,1,0,0,0,1.41,0l1.44-1.44a3.93,3.93,0,0,0,2.09.6,4.06,4.06,0,0,0,2.88-1.2L23.6,18.21Z">
+                    </path>
+                </svg>
+            </button>
+
+            <p id="colour-description" class="visually-hidden">
+                After selecting a colour, it will be shown visually in the colour sample and announced in the hex value
+                area.
+            </p>
+
+            <div class="colour-sample" id="colour-sample" style="background-color: #fff;" aria-live="polite">
+                <span class="visually-hidden">Selected colour</span>
+            </div>
+            <div class="colour-hex" aria-live="polite">
+                <span class="visually-hidden">Selected colour hex value: </span>
+                <span id="colour-hex">#FFFFFF</span>
+            </div>
+        </div>
+
+        <div class="not-supported" id="not-supported"></div>
+
+
+    </main>
+
+    <footer class="footer">
+        <a href="https://github.com/chrisnajman/eye-dropper" target="_blank" rel="noopener noreferrer"
+            class="external-link">
+            GitHub Repository
+        </a>
+    </footer>
+
+</body>
+
+</html>
